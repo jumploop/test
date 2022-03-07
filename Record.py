@@ -2,23 +2,19 @@ from functools import wraps
 import time
 
 
-def record_time(output):
-    """可以参数化的装饰器"""
-
-    def decorate(func):
+class Record:
+    def __call__(self, func):
         @wraps(func)
         def wrapper(*args, **kwargs):
             start = time.time()
             result = func(*args, **kwargs)
-            output(func.__name__, time.time() - start)
+            print(f'{func.__name__} 执行时间：{time.time()-start}秒')
             return result
 
         return wrapper
 
-    return decorate
 
-
-@record_time(print)
+@Record()
 def foo():
     print('foo')
 
