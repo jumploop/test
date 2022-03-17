@@ -3,7 +3,6 @@
 """
 
 import random
-from traceback import print_tb
 
 answer = random.randint(1, 100)
 counter = 0
