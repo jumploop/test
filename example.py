@@ -4,10 +4,7 @@ import cProfile
 
 
 def is_prime(num):
-    for factor in range(2, int(num ** 0.5) + 1):
-        if num % factor == 0:
-            return False
-    return True
+    return all(num % factor != 0 for factor in range(2, int(num ** 0.5) + 1))
 
 
 class PrimeIter:

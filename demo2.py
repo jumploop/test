@@ -9,11 +9,7 @@ import fileinput
 import sys
 import contextlib
 
-if sys.version_info[0] == 2:
-    input = raw_input
-else:
-    input = input
-
+input = raw_input if sys.version_info[0] == 2 else input
 with contextlib.closing(fileinput.input(files=input())) as f:
     for line in f:
         line = line.rstrip()

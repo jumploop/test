@@ -6,18 +6,17 @@ from math import sqrt
 def is_prime(n):
     """判断素数的函数"""
     assert n > 0
-    for factor in range(2, int(sqrt(n)) + 1):
-        if n % factor == 0:
-            return False
-    return True if n != 1 else False
+    return next(
+        (False for factor in range(2, int(sqrt(n)) + 1) if n % factor == 0),
+        n != 1,
+    )
 
 
 def main():
     filenames = ('a.txt', 'b.txt', 'c.txt')
     fs_list = []
     try:
-        for filename in filenames:
-            fs_list.append(open(filename, 'w', encoding='utf-8'))
+        fs_list.extend(open(filename, 'w', encoding='utf-8') for filename in filenames)
         for number in range(1, 10000):
             if is_prime(number):
                 if number < 100:

@@ -10,10 +10,7 @@ import sys
 import zipfile
 import logging
 
-if sys.version_info[0] == 2:
-    input = raw_input
-else:
-    input = input
+input = raw_input if sys.version_info[0] == 2 else input
 formatter = '%(asctime)s %(levelname)s %(filename)s[%(lineno)d]: %(message)s'
 logging.basicConfig(level=logging.DEBUG, format=formatter,
                     datefmt='%Y:%m:%d %H:%M:%S', encoding='utf-8')

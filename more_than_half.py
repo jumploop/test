@@ -8,11 +8,10 @@ def more_than_half(items):
         if times == 0:
             temp = item
             times += 1
+        elif item == temp:
+            times += 1
         else:
-            if item == temp:
-                times += 1
-            else:
-                times -= 1
+            times -= 1
     return temp
 
 

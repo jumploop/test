@@ -54,10 +54,7 @@ class Retry(object):
 def download(url, timeout=1):
     response = requests.get(url, timeout=timeout)
     logging.info("response %s",response.text)
-    if response.status_code == 200:
-        print(response.text)
-    else:
-        print(response.text)
+    print(response.text)
 
 
 if __name__ == '__main__':

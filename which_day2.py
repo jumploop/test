@@ -14,6 +14,6 @@ def which_day(year, month, day):
 
 
 if __name__ == '__main__':
-    today = datetime.datetime.today()
+    today = datetime.datetime.now()
     print(today)
     print(which_day(today.year, today.month, today.day))

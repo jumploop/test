@@ -21,11 +21,10 @@ def show_spiral_matrix(n):
                 col -= 1
             else:
                 direction += 1
+        elif row > 0 and matrix[row - 1][col] == 0:
+            row -= 1
         else:
-            if row > 0 and matrix[row - 1][col] == 0:
-                row -= 1
-            else:
-                direction += 1
+            direction += 1
         direction %= 4
     for x in matrix:
         for y in x:
